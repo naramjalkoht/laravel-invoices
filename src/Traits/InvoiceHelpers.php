@@ -265,16 +265,7 @@ trait InvoiceHelpers
 
     public function calculateDiscount(): void
     {
-        $totalAmount = $this->total_amount;
-
-        if ($this->discount_percentage) {
-            $newTotalAmount = PricingService::applyDiscount($totalAmount, $this->discount_percentage, $this->currency_decimals, true);
-        } else {
-            $newTotalAmount = PricingService::applyDiscount($totalAmount, $this->total_discount, $this->currency_decimals);
-        }
-
-        $this->total_amount   = $newTotalAmount;
-        $this->total_discount = $totalAmount - $newTotalAmount;
+        
     }
 
     public function calculateTax(): void
